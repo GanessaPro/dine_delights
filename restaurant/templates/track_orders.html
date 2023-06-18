@@ -1,0 +1,50 @@
+{# templates/track_orders.html #}
+
+{% extends "base.html" %}
+
+{% block content %}
+      <!-- MAIN -->
+      <main>
+        <div class="head-title">
+          <div class="left">
+            <h1>Track Orders</h1>
+          </div>
+        </div>
+
+        <div class="table-data">
+          <div class="order">
+            <div class="head">
+              <h3>Recent Orders</h3>
+
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Customer name</th>
+                  <th>Ordered Date</th>
+
+                  <th>Receipt</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+              {% for items in orders %} 
+                <tr>
+                  <td>
+                    <p>{{items.id}}</p>
+                  </td>
+                  <td>{{items.users.fullname}}</td>
+                  <td>{{items.order_date}}</td>
+                  <td><a href="{{ url_for('admin.admin_view_details') }}"><Button class="button-1" role="button">View</Button></a></td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+      <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+{% endblock content %}
